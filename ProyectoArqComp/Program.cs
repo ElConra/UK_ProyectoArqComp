@@ -34,16 +34,8 @@ namespace ProyectoArqComp
 
             sincrono.Start();
             
-            //Iniciando las subcadenas
-            for (int i = 0; i < palabra.Length; i++)
-            {
-                for (int j = 1; j <= palabra.Length - i; j++)
-                {
-                    Console.WriteLine(palabra.Substring(i, j) + "   Obtenido en:  " + sincrono.Elapsed);
-                }
-            }
-            sincrono.Stop();
-            Console.WriteLine("Tiempo total transcurrido: " + sincrono.Elapsed);
+            
+            
 
             Console.WriteLine();
             Console.WriteLine();
