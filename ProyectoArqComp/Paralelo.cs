@@ -10,8 +10,8 @@ namespace ProyectoArqComp
     public class Paralelo
     {
 
-        public Paralelo(string palabra) 
-        { 
+        public Paralelo(string palabra)
+        {
             Stopwatch paralelo = new Stopwatch();
             Console.WriteLine("Iniciando proceso paralelo....");
             Console.WriteLine("Contador iniciado: " + paralelo.Elapsed);
@@ -19,12 +19,12 @@ namespace ProyectoArqComp
 
 
             Parallel.For(0, palabra.Length, i =>
-            {
-                for (int j = 1; j <= palabra.Length - i; j++)
                 {
-                    palabra.Substring(i, j);
-                }
-            });
+                    Parallel.For(1, palabra.Length - i, j =>
+                    {
+                        palabra.Substring(i, j);
+                    });
+                });
             paralelo.Stop();
             Console.WriteLine("Tiempo total transcurrido: " + paralelo.Elapsed);
             Console.WriteLine("Terminando proceso paralelo....");
